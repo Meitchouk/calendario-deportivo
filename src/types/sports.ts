@@ -1,0 +1,4 @@
+export type Sport = "football" | "baseball" | "basketball" | "ufc" | "nfl";
+export type EventStatus = "scheduled" | "live" | "finished" | "postponed" | "cancelled";
+export type SportEvent = { id:string; providerId?:string; sport:Sport; leagueId?:string; leagueName:string; country?:string; homeName?:string; awayName?:string; homeLogo?:string; awayLogo?:string; leagueLogo?:string; title:string; startAt:string; timezone:string; status:EventStatus; round?:string; venue?:string; homeScore?:number; awayScore?:number; source:"api-sports"|"manual"; externalUrl?:string; createdAt?:string; updatedAt?:string; notes?:string };
+export type EnabledLeague = { id?:string; sport:Sport; provider:"api-sports"; leagueId:string; name:string; enabled:boolean; favorite?:boolean; priority:number; region:"nicaragua"|"international" };

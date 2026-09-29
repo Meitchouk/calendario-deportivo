@@ -1,0 +1,3 @@
+import type { Sport } from "@/types/sports";
+export const SPORT_META:Record<Sport,{label:string;accent:string;soft:string}>={football:{label:"Fútbol",accent:"#238b57",soft:"#e7f6ed"},baseball:{label:"Baseball",accent:"#2871c8",soft:"#e8f1ff"},basketball:{label:"Basket",accent:"#e57921",soft:"#fff0e4"},ufc:{label:"UFC",accent:"#c44141",soft:"#ffe9e9"},nfl:{label:"NFL",accent:"#7757c4",soft:"#f0eaff"}};
+export const LEAGUES=["Liga Primera Nicaragua","Copa Nicaragua","Liga Primera U20","Selección Nicaragua","Champions League","Premier League","LaLiga","Serie A","Bundesliga","Ligue 1","MLB","CNBS / Pomares","NBA","EuroLeague","LSB","Carlos Ulloa","UFC","NFL"];

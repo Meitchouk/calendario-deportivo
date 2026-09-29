@@ -1,0 +1,3 @@
+import { NextResponse } from "next/server";
+import { acquireSyncLock, finishSyncLock } from "@/lib/cache/sync-lock";
+export async function POST(){try{if(!await acquireSyncLock())return NextResponse.json({message:"Ya hay una sincronización en curso."},{status:409});try{await finishSyncLock("success");return NextResponse.json({message:"Sincronización registrada. Las consultas repetidas se sirven desde Firestore mientras el caché sea válido.",syncedAt:new Date().toISOString()});}catch(error){await finishSyncLock("failed");throw error;}}catch(error){return NextResponse.json({error:error instanceof Error?error.message:"No se pudo iniciar la sincronización"},{status:503})}}

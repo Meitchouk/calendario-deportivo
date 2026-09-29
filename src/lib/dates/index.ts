@@ -1,0 +1,4 @@
+import { addMonths, endOfMonth, format, startOfMonth } from "date-fns";
+export const APP_TIMEZONE="America/Managua";
+export function getMonthRange(value?:string){const date=value&&/^\d{4}-\d{2}$/.test(value)?new Date(`${value}-01T12:00:00`):new Date();return{date,from:format(startOfMonth(date),"yyyy-MM-dd"),to:format(endOfMonth(date),"yyyy-MM-dd")}}
+export function monthKey(date:Date){return format(date,"yyyy-MM")};export function shiftMonth(value:string,offset:number){return monthKey(addMonths(new Date(`${value}-01T12:00:00`),offset))};export function eventParts(iso:string){const p=new Intl.DateTimeFormat("en-US",{timeZone:APP_TIMEZONE,hour:"2-digit",minute:"2-digit",hour12:false,year:"numeric",month:"2-digit",day:"2-digit"}).formatToParts(new Date(iso)),v=(t:string)=>p.find(x=>x.type===t)?.value??"";return{day:`${v("year")}-${v("month")}-${v("day")}`,time:`${v("hour")}:${v("minute")}`}}
